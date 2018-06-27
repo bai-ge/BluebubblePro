@@ -2,12 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_help"
-        android:title="帮助"
+        android:id="@+id/menu_add_pwd"
+        android:title="添加密码记录"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_change_lock"
+        android:title="修改应用锁"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_qrcode"
         android:title="二维码"
         android:icon="@drawable/ic_qrcode"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_help"
+        android:title="帮助"
+        app:showAsAction="never" />
 </menu>

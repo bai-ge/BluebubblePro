@@ -28,7 +28,13 @@
         <activity android:name=".example.StaggeredGridActivityFragment"/>
         <activity android:name=".example.StaggeredGridEmptyViewActivity"/>
         <activity android:name=".example.ListViewActivity"/>
-        <activity android:name=".example.QRCodeActivity"/>
+        <activity android:name=".ui.QRCodeActivity"/>
+        <!--密码本 添加记录-->
+        <activity android:name=".ui.AddPwdActivity"></activity>
+        <!--修改应用锁-->
+        <activity android:name=".ui.ChangeLockActivity"
+                  android:launchMode="singleInstance"></activity>
+        <activity android:name=".ui.CustomScanActivity"/>
     </application>
 
 </manifest>

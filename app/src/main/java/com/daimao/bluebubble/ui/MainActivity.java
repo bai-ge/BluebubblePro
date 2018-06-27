@@ -14,7 +14,6 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.daimao.bluebubble.BaseApplication;
 import com.daimao.bluebubble.R;
-import com.daimao.bluebubble.example.QRCodeActivity;
 import com.daimao.bluebubble.fragment.NotebookFragment;
 import com.daimao.bluebubble.fragment.PasswordBookFragment;
 import com.daimao.bluebubble.fragment.PersonalFragment;
@@ -93,9 +92,9 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
 //                .setBackgroundColorResource(R.color.orange)
 //                .setBorderWidth(0);
 
-        mBottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_msg, titles[0]))
-                .addItem(new BottomNavigationItem(R.drawable.ic_friends, titles[1]))
-                .addItem(new BottomNavigationItem(R.drawable.ic_folder, titles[2]))
+        mBottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_passwordbook, titles[0]))
+                .addItem(new BottomNavigationItem(R.drawable.ic_notebook, titles[1]))
+                .addItem(new BottomNavigationItem(R.drawable.ic_deedbox, titles[2]))
                 .addItem(new BottomNavigationItem(R.drawable.ic_person, titles[3]))
                 .setFirstSelectedPosition(0)
                 .initialise();
@@ -121,6 +120,12 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
             case R.id.menu_help:
 //                AboutActivity.launch(context);
                 BaseApplication.getInstance().showTip("帮助");
+                break;
+            case R.id.menu_add_pwd:
+                Router.newIntent(MainActivity.this).to(AddPwdActivity.class).launch();
+                break;
+            case R.id.menu_change_lock:
+                Router.newIntent(MainActivity.this).to(ChangeLockActivity.class).launch();
                 break;
             case R.id.menu_qrcode:
                 BaseApplication.getInstance().showTip("二维码");
