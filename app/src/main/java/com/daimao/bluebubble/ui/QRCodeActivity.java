@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,8 @@ import java.io.UnsupportedEncodingException;
 
 import butterknife.BindView;
 import cn.droidlover.xdroidmvp.mvp.XActivity;
+
+import static com.daimao.bluebubble.AppConfigure.LOG_TAG;
 
 public class QRCodeActivity extends XActivity implements View.OnClickListener {
 
@@ -88,6 +91,7 @@ public class QRCodeActivity extends XActivity implements View.OnClickListener {
                     Bitmap bitmap = null;
                     try {
                         Bitmap logo = BitmapTools.decodeSampledBitmapFromResource(getResources(), R.drawable.lock, 200, 200);
+                        Log.d(LOG_TAG, logo+"图片");
                         logo = BitmapTools.drawCircleViewWithBorder(logo, 200, 200, 15, Color.WHITE);
                         logo = BitmapTools.drawCircleView(logo, 200, 200);
 //                        bitmap = QRCodeTools.encodeAsBitmap(new String(text.getBytes(), "ISO-8859-1"), logo);
