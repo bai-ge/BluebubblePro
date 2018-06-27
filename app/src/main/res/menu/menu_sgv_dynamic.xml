@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/col1"
+        app:showAsAction="always|withText"
+        android:title="1 Column"/>
+    <item
+        android:id="@+id/col2"
+        app:showAsAction="always|withText"
+        android:title="2 Columns"/>
+    <item
+        android:id="@+id/col3"
+        app:showAsAction="always|withText"
+        android:title="3 Columns"/>
+
+</menu>
