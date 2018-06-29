@@ -8,4 +8,12 @@
     <string name="navigation_home">主页</string>
     <string name="navigation_logout">注销</string>
     <string name="navigation_return">退出</string>
+
+    <string-array name="network_protocol">
+        <item>http://</item>
+        <item>https://</item>
+        <item>ftp://</item>
+        <item></item>
+    </string-array>
+
 </resources>

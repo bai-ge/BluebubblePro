@@ -13,4 +13,9 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="CustomPasswordCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_password_check_box</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
