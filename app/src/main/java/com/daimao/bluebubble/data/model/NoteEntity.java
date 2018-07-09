@@ -1,4 +1,4 @@
-package com.daimao.bluebubble.model;
+package com.daimao.bluebubble.data.model;
 
 /**
  * Created by baige on 2018/6/19.

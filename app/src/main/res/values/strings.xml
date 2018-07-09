@@ -16,4 +16,13 @@
         <item></item>
     </string-array>
 
+    <string name="null_info">这里什么都没有</string>
+
+    <string name="help_tips_detail">
+    1.左上角的锁头表示是否单独给该账号设置手势锁\n
+    2.二维码表示生成该账号的二维码信息,可在其它设备上扫描识别该账号\n
+    3.分享按钮可以复制该账号的字符串，通过其它应用分享出去\n
+    4.Logo可更改
+    </string>
+
 </resources>

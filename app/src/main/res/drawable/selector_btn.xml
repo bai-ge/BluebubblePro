@@ -14,7 +14,9 @@
             <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
 
             <solid android:color="@color/colorPrimaryDark"/>
-        </shape></item>
+        </shape>
+    </item>
+
     <item android:state_focused="true"> <!-- get the focus button sttaus -->
         <shape>
             <gradient android:angle="270" android:endColor="#ffc2b7" android:startColor="#ffc2b7" />
@@ -24,7 +26,21 @@
             <corners android:radius="16dp" />
 
             <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
-        </shape></item>
+        </shape>
+    </item>
+
+    <item android:state_enabled="false">
+        <shape>
+            <gradient android:angle="270" android:endColor="#989898" android:startColor="#989898" />
+
+            <stroke android:width="1sp" android:color="#dcdcdc" />
+
+            <corners android:radius="16dp" />
+
+            <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+        </shape>
+    </item>
+
     <item> <!-- no focus the button status(the normal status button) -->
         <shape>
             <gradient android:angle="270" android:endColor="#00000000" android:startColor="#00000000" />
@@ -36,6 +52,7 @@
             <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
 
             <solid android:color="@color/bg_8"/>
-        </shape></item>
+        </shape>
+    </item>
 
 </selector>

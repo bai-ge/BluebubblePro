@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              tools:context=".ui.EditNoteActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,12 +18,14 @@
             android:background="@color/grey">
 
             <ImageButton
-                android:id="@+id/bt_back"
+                android:id="@+id/btn_back"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_back"/>
+                android:background="@drawable/ic_back"
+                android:src="@drawable/selector_normal_bg"
+                android:onClick="onBack"/>
 
             <TextView
                 android:id="@+id/txt_edit_time"
@@ -29,7 +34,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_toRightOf="@id/bt_back"
+                android:layout_toRightOf="@id/btn_back"
                 android:text="6月22日 22:59"
                 android:textSize="25sp"/>
 
@@ -41,7 +46,8 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_marginRight="@dimen/fab_margin"
-                android:text="完成"/>
+                android:text="完成"
+                android:onClick="onFinish"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -52,7 +58,9 @@
                 android:id="@+id/editor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/edit_tool_layout"/>
+                android:layout_above="@+id/edit_tool_layout"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin"/>
 
             <HorizontalScrollView
                 android:id="@+id/edit_tool_layout"
@@ -73,7 +81,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/undo"
-                        />
+                        android:onClick="undo"/>
 
                     <ImageButton
                         android:id="@+id/action_redo"
@@ -82,7 +90,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/redo"
-                        />
+                        android:onClick="redo"/>
 
                     <ImageButton
                         android:id="@+id/action_bold"
@@ -90,7 +98,8 @@
                         android:layout_height="48dp"
                         android:background="@null"
                         android:contentDescription="@null"
-                        android:src="@drawable/bold"/>
+                        android:src="@drawable/bold"
+                        android:onClick="bold"/>
 
                     <ImageButton
                         android:id="@+id/action_italic"
@@ -99,7 +108,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/italic"
-                        />
+                        android:onClick="italic"/>
 
 
 
@@ -110,7 +119,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/underline"
-                        />
+                        android:onClick="underline"/>
 
                     <ImageButton
                         android:id="@+id/action_heading1"
@@ -119,7 +128,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/h1"
-                        />
+                        android:onClick="heading1"/>
 
                     <ImageButton
                         android:id="@+id/action_heading2"
@@ -128,7 +137,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/h2"
-                        />
+                        android:onClick="heading2"/>
 
                     <ImageButton
                         android:id="@+id/action_heading3"
@@ -137,7 +146,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/h3"
-                        />
+                        android:onClick="heading3"/>
 
                     <ImageButton
                         android:id="@+id/action_heading4"
@@ -146,7 +155,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/h4"
-                        />
+                        android:onClick="heading4"/>
 
                     <ImageButton
                         android:id="@+id/action_heading5"
@@ -155,7 +164,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/h5"
-                        />
+                        android:onClick="heading5"/>
 
                     <ImageButton
                         android:id="@+id/action_heading6"
@@ -164,7 +173,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/h6"
-                        />
+                        android:onClick="heading6"/>
 
                     <ImageButton
                         android:id="@+id/action_txt_color"
@@ -173,7 +182,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/txt_color"
-                        />
+                        android:onClick="txtColor"/>
 
                     <ImageButton
                         android:id="@+id/action_bg_color"
@@ -182,7 +191,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/bg_color"
-                        />
+                        android:onClick="bgColor"/>
 
 
 
@@ -197,7 +206,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/bullets"
-                        />
+                        android:onClick="insertBullets"/>
 
                     <ImageButton
                         android:id="@+id/action_insert_numbers"
@@ -206,7 +215,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/numbers"
-                        />
+                        android:onClick="insertNumbers" />
 
                     <ImageButton
                         android:id="@+id/action_insert_image"
@@ -215,7 +224,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/insert_image"
-                        />
+                        android:onClick="insertImage"/>
 
                     <ImageButton
                         android:id="@+id/action_insert_link"
@@ -224,7 +233,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@drawable/insert_link"
-                        />
+                        android:onClick="insertLink"/>
 
                     <ImageButton
                         android:id="@+id/action_insert_checkbox"
@@ -233,7 +242,7 @@
                         android:background="@null"
                         android:contentDescription="@null"
                         android:src="@android:drawable/checkbox_on_background"
-                        />
+                        android:onClick="insertCheckbox"/>
                 </LinearLayout>
             </HorizontalScrollView>
         </RelativeLayout>

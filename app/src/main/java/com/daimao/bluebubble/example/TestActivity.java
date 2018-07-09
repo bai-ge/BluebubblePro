@@ -28,12 +28,16 @@ public class TestActivity extends XActivity implements View.OnClickListener{
     @BindView(R.id.btn_listview)
     Button mBtnListView;
 
+    @BindView(R.id.btn_edit_logo)
+    Button mBtnEidtLogo;
+
     @Override
     public void initData(Bundle savedInstanceState) {
         mBtnSgv.setOnClickListener(this);
         mBtnSgvFragment.setOnClickListener(this);
         mBtnEmptyView.setOnClickListener(this);
         mBtnListView.setOnClickListener(this);
+        mBtnEidtLogo.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +64,9 @@ public class TestActivity extends XActivity implements View.OnClickListener{
                 break;
             case R.id.btn_listview:
                 Router.newIntent(TestActivity.this).to(ListViewActivity.class).launch();
+                break;
+            case R.id.btn_edit_logo:
+                Router.newIntent(TestActivity.this).to(LogoActivity.class).launch();
                 break;
         }
     }

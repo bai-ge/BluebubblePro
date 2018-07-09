@@ -39,6 +39,10 @@ public class BaseApplication extends Application {
     public static String downloadPath = Environment.getExternalStorageDirectory()
             + File.separator + "BlueBubble"+ File.separator + "download";
 
+    public static String logoImgPath = "/logo";
+
+    public static String tmpPath = "/tmp";
+
     public String getDiskCacheDir(Context context) {
         String cachePath = null;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
@@ -56,6 +60,9 @@ public class BaseApplication extends Application {
         super.onCreate();
         self = this;
 
+        logoImgPath = getDiskCacheDir(getAppContext()) + File.separator + "logo";
+
+        tmpPath =  getDiskCacheDir(getAppContext()) + File.separator + "tmp";
 
         mHandler = new Handler();
 

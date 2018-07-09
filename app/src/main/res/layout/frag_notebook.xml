@@ -37,6 +37,26 @@
             <!--android:layout_marginEnd="30dp"-->
             <!--android:layout_marginBottom="30dp"/>-->
 
+            <LinearLayout
+                android:id="@+id/layout_null"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_notebook"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:layout_gravity="center"
+                    android:textColor="@color/grass_primary"
+                    android:text="@string/null_info"/>
+            </LinearLayout>
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_add_note"
                 android:layout_width="wrap_content"

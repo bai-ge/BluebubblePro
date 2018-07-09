@@ -7,7 +7,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Shader;
+import android.graphics.Typeface;
+
+import static com.daimao.bluebubble.util.Tools.checkNotNull;
 
 /**
  * Created by 百戈 on 2017/6/7.
@@ -91,6 +95,39 @@ public class BitmapTools {
         canvas.drawCircle(radius, radius, radius, bitmapPaint);
         //返回的就是一个圆形的bitmap对象
         return bm;
+    }
+
+    public static Bitmap createCircleLogo(String text, int radius, int backgroundColor, int fontColor){
+        checkNotNull(text);
+        Bitmap bitmap = Bitmap.createBitmap(radius * 2, radius * 2, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+
+        //画背景圆
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setAntiAlias(true);
+        paint.setColor(backgroundColor);
+        canvas.drawCircle(radius, radius, radius, paint);
+
+        //画字体
+        Paint fontPaint = new Paint();
+        // 设置字体边缘平滑
+        fontPaint.setAntiAlias(true);
+        fontPaint.setStyle(Paint.Style.FILL);
+//        fontPaint.setStrokeWidth(2);
+        fontPaint.setColor(fontColor);
+        fontPaint.setTextSize(radius);
+        fontPaint.setTypeface(Typeface.MONOSPACE);
+        Rect rect = new Rect();
+        fontPaint.getTextBounds(text, 0, 1, rect);
+
+        // 文字宽度
+        int textWidth = rect.width();
+        // 文字高度
+        int textHeight = rect.height();
+        canvas.drawText(text.substring(0, 1), radius - textWidth/2, radius + textHeight / 2, fontPaint);
+
+        return bitmap;
     }
 
     public static Bitmap drawCircleViewWithBorder(Bitmap bitmap, int width, int height, int borderWidth, int borderColor) {

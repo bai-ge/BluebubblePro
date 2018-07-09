@@ -6,8 +6,6 @@ import android.os.PersistableBundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.daimao.bluebubble.R;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
@@ -86,14 +84,12 @@ public class CustomScanActivity extends XActivity implements DecoratedBarcodeVie
     // torch 手电筒
     @Override
     public void onTorchOn() {
-        Toast.makeText(this,"torch on", Toast.LENGTH_LONG).show();
         mBtnSwichLight.setBackgroundResource(R.drawable.ic_light);
         isLightOn = true;
     }
 
     @Override
     public void onTorchOff() {
-        Toast.makeText(this,"torch off", Toast.LENGTH_LONG).show();
         mBtnSwichLight.setBackgroundResource(R.drawable.ic_dark);
         isLightOn = false;
     }

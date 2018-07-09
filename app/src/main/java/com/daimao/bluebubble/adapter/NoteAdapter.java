@@ -4,18 +4,20 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.daimao.bluebubble.R;
-import com.daimao.bluebubble.model.NoteEntity;
+import com.daimao.bluebubble.data.model.NoteEntity;
 import com.daimao.bluebubble.util.ImageLoader;
 import com.daimao.bluebubble.util.Tools;
 import com.etsy.android.grid.util.DynamicHeightImageView;
@@ -45,6 +47,17 @@ public class NoteAdapter extends ArrayAdapter<NoteEntity> {
         super(context, resource);
         resourceId = resource;
         mRandom = new Random();
+    }
+
+    @Override
+    public int getCount() {
+        return super.getCount();
+    }
+
+    @Nullable
+    @Override
+    public NoteEntity getItem(int position) {
+        return super.getItem(position);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {

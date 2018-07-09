@@ -1,15 +1,17 @@
 package com.daimao.bluebubble.fragment;
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
 import com.daimao.bluebubble.BaseApplication;
 import com.daimao.bluebubble.R;
 import com.daimao.bluebubble.adapter.NoteAdapter;
-import com.daimao.bluebubble.model.NoteEntity;
+import com.daimao.bluebubble.data.model.NoteEntity;
 import com.daimao.bluebubble.ui.EditNoteActivity;
 import com.etsy.android.grid.StaggeredGridView;
 import com.quinny898.library.persistentsearch.SearchBox;
@@ -35,6 +37,9 @@ public class NotebookFragment extends XFragment {
 
     @BindView(R.id.fab_add_note)
     FloatingActionButton fabAddNote;
+
+    @BindView(R.id.layout_null)
+    ViewGroup mNothingView;
 
     private NoteAdapter mAdapter;
 
@@ -129,6 +134,24 @@ public class NotebookFragment extends XFragment {
 
     private void initNotebook(){
         mAdapter = new NoteAdapter(getContext(), R.layout.item_note);
+        mAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                BaseApplication.getInstance().showTip("change" + mAdapter.getCount());
+                if(mAdapter.isEmpty()){
+                    mNothingView.setVisibility(View.VISIBLE);
+                }else{
+                    mNothingView.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onInvalidated() {
+                super.onInvalidated();
+            }
+        });
+
         for (int i = 0; i < 10; i++) {
             NoteEntity note = new NoteEntity();
             note.setNoteTitle("标题"+i);
@@ -137,5 +160,6 @@ public class NotebookFragment extends XFragment {
         }
         mAdapter.addAll(mNoteList);
         mGridView.setAdapter(mAdapter);
+
     }
 }

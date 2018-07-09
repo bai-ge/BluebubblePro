@@ -30,11 +30,18 @@
         <activity android:name=".example.ListViewActivity"/>
         <activity android:name=".ui.QRCodeActivity"/>
         <!--密码本 添加记录-->
-        <activity android:name=".ui.AddPwdActivity"></activity>
+        <activity android:name=".ui.EditAccountActivity"></activity>
         <!--修改应用锁-->
         <activity android:name=".ui.ChangeLockActivity"
                   android:launchMode="singleInstance"></activity>
         <activity android:name=".ui.CustomScanActivity"/>
+
+        <activity android:name=".example.LogoActivity"/>
+        
+        <provider
+            android:authorities="com.daimao.bluebubble.provider.DataContentProvider"
+            android:name=".provider.DataContentProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>

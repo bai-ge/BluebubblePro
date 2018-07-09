@@ -1,5 +1,6 @@
 package com.daimao.bluebubble.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,15 +10,19 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.daimao.bluebubble.BaseApplication;
 import com.daimao.bluebubble.R;
+import com.daimao.bluebubble.data.model.AccountEntity;
 import com.daimao.bluebubble.fragment.NotebookFragment;
 import com.daimao.bluebubble.fragment.PasswordBookFragment;
 import com.daimao.bluebubble.fragment.PersonalFragment;
 import com.daimao.bluebubble.fragment.ToolsFragment;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +61,7 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
     @Override
     public void initData(Bundle savedInstanceState) {
         initView();
+//getContentResolver().insert()
 
     }
 
@@ -63,7 +69,7 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         getSupportActionBar().setTitle("密码本");
-        getSupportActionBar().setShowHideAnimationEnabled(true);
+//        getSupportActionBar().setShowHideAnimationEnabled(true);
 
         fragmentList.clear();
         fragmentList.add(PasswordBookFragment.newInstance());
@@ -122,7 +128,7 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
                 BaseApplication.getInstance().showTip("帮助");
                 break;
             case R.id.menu_add_pwd:
-                Router.newIntent(MainActivity.this).to(AddPwdActivity.class).launch();
+                Router.newIntent(MainActivity.this).to(EditAccountActivity.class).putInt("add", 1).launch();
                 break;
             case R.id.menu_change_lock:
                 Router.newIntent(MainActivity.this).to(ChangeLockActivity.class).launch();
@@ -131,6 +137,9 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
                 BaseApplication.getInstance().showTip("二维码");
                 Router.newIntent(MainActivity.this).to(QRCodeActivity.class).launch();
                 break;
+            case R.id.menu_qrcode_recognize:
+                customScan();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -138,6 +147,47 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
     @Override
     public Object newP() {
         return null;
+    }
+
+
+
+    // 你也可以使用简单的扫描功能，但是一般扫描的样式和行为都是可以自定义的，这里就写关于自定义的代码了
+// 你可以把这个方法作为一个点击事件
+    public void customScan() {
+        new IntentIntegrator(this)
+                .setOrientationLocked(false)
+                .setCaptureActivity(CustomScanActivity.class) // 设置自定义的activity是CustomActivity
+                .setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                .setPrompt("扫描二维码")
+                .setTimeout(30000)
+                .initiateScan(); // 初始化扫描
+
+//        IntentIntegrator integrator = new IntentIntegrator((Activity) activity);
+//        integrator.setCaptureActivity(CodeScanningActivity.class);
+//        integrator.setOrientationLocked(true);
+//        integrator.setBeepEnabled(false);
+//        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+    }
+
+    @Override
+// 通过 onActivityResult的方法获取 扫描回来的 值
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (intentResult != null) {
+            if (intentResult.getContents() == null) {
+                Toast.makeText(this, "内容为空", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "扫描成功", Toast.LENGTH_LONG).show();
+                // ScanResult 为 获取到的字符串
+                String scanResult = intentResult.getContents();
+                AccountEntity accountEntity = AccountEntity.newFromQRCode(scanResult);
+                if(accountEntity != null){
+                    Router.newIntent(MainActivity.this).to(EditAccountActivity.class).putParcelable("account", accountEntity).putInt("add", 1).launch();
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private long clickBackTime = 0;

@@ -42,6 +42,14 @@ public class Tools {
     public static final long TIME_SIZE_HOUR = 60 * 60 * 1000;
     public static final long TIME_SIZE_DAY = 24 * TIME_SIZE_HOUR;
 
+
+    public static <T> T checkNotNull(T obj) {
+        if (obj == null) {
+            throw new NullPointerException();
+        }
+        return obj;
+    }
+
     public static String MD5(String s) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

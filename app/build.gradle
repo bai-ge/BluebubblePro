@@ -88,8 +88,16 @@ dependencies {
     //compile 'com.google.zxing:core:3.3.0'
 
     //图片选择与裁剪 https://github.com/jeasonlzy/ImagePicker
-    compile 'com.lzy.widget:imagepicker:0.6.1'  //指定版本
+    implementation 'com.lzy.widget:imagepicker:0.6.1'  //指定版本
 
     //图片加载器
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    //对话框
+    implementation('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
+        transitive = true
+    }
+    implementation('com.github.afollestad.material-dialogs:commons:0.8.5.4@aar') {
+        transitive = true
+    }
 }

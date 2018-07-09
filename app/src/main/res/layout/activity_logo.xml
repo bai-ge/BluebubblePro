@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bg_1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/fab_margin">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:text="标题"/>
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:hint="标题"/>
+            <Button
+                android:id="@+id/btn_refresh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="刷新"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            tools:background="@color/dark_gray"
+            android:layout_margin="@dimen/fab_margin"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btn_graph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="形状"/>
+            <Button
+                android:id="@+id/btn_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="背景色"/>
+            <Button
+                android:id="@+id/btn_front_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="字体颜色"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

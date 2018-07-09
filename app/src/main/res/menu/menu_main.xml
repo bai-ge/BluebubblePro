@@ -4,10 +4,12 @@
     <item
         android:id="@+id/menu_add_pwd"
         android:title="添加密码记录"
+        android:icon="@drawable/ic_add_account"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_change_lock"
         android:title="修改应用锁"
+        android:icon="@drawable/ic_setting"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_qrcode"
@@ -15,7 +17,13 @@
         android:icon="@drawable/ic_qrcode"
         app:showAsAction="always"/>
     <item
+        android:id="@+id/menu_qrcode_recognize"
+        android:title="二维码"
+        android:icon="@drawable/ic_qrcode_recognize"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/menu_help"
         android:title="帮助"
+        android:icon="@drawable/ic_help"
         app:showAsAction="never" />
 </menu>
